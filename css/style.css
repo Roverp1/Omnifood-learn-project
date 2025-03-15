@@ -7,9 +7,14 @@ FONT SIZE SYSTEM (px)
 
 FONT WEIGHT: 
   default: 400;
+  medium: 500;
+  semi-bold: 600;
+  bold: 700;
 
 LINE HEIGHT: 
   default: 1;
+  small: 1.05;
+  paragraph-default: 1.6;
 
 COLORS:
   Primary: #e67e22;
@@ -21,15 +26,32 @@ COLORS:
 SHADOWS:
   
 BORDER-RADIUS:
+  default: 9px;
 
 WHITESPACE:
 */
 
 :root {
+  /*FONT WEIGHT: */
+  --fw-default: 400;
+  --medium: 500;
+  --semi-bold: 600;
+  --bold: 700;
+
+  /*LINE HEIGHT: */
+  --lh-default: 1;
+  --lh-small: 1.05;
+  --lh-paragraph-default: 1.6;
+
+  /*BORDER-RADIUS:*/
+  --border-radius-default: 9px;
+
+  /*COLORS:*/
   --main-color: #e67e22;
   --grey-color: ;
-
-  --hero-bgc-color: #fdf2e9;
+  --bgc-color: #fdf2e9;
+  --grey-weighted-color: #333;
+  --main-shade-color: #cf711f;
 }
 
 * {
@@ -48,8 +70,8 @@ html {
 body {
   font-family: "Rubik", sans-serif;
 
-  line-height: 1;
-  font-weight: 400;
+  line-height: var(--lh-default);
+  font-weight: var(--fw-default);
 
   color: #555;
 }
@@ -57,14 +79,33 @@ body {
 /*********************************/
 /*      GENERAL COMPONENTS       */
 /*********************************/
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+.grid {
+  display: grid;
+  gap: 9.6rem;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .heading-primary {
   font-size: 5.2rem;
-  font-weight: 700;
-  line-height: 1.05;
+  font-weight: var(--bold);
+  line-height: var(--lh-small);
   letter-spacing: -0.5px;
   margin-bottom: 3.5rem;
 
-  color: #333;
+  color: var(--grey-weighted-color);
 }
 
 .btn:link,
@@ -74,8 +115,8 @@ body {
 
   padding: 1.6rem 3.2rem;
   font-size: 2rem;
-  font-weight: 600;
-  border-radius: 9px;
+  font-weight: var(--semi-bold);
+  border-radius: var(--border-radius-default);
 
   transition: all 0.3s;
 }
@@ -88,7 +129,7 @@ body {
 
 .btn--full:hover,
 .btn--full:active {
-  background-color: #cf711f;
+  background-color: var(--main-shade-color);
 }
 
 .btn--outline:link,
@@ -102,7 +143,7 @@ body {
   /*adding border inside*/
   box-shadow: inset 0 0 0 3px #fff;
 
-  background-color: var(--hero-bgc-color);
+  background-color: var(--bgc-color);
 }
 
 .margin-right-sm {
@@ -120,7 +161,7 @@ body {
   height: 9.6rem;
 
   /* cause we want the header at the top acros the entire page */
-  background-color: var(--hero-bgc-color);
+  background-color: var(--bgc-color);
   padding: 0 4.8rem;
 }
 
@@ -129,12 +170,56 @@ body {
 }
 
 /*********************************/
+/*           Navigation          */
+/*********************************/
+.main-nav-list {
+  list-style: none;
+
+  display: flex;
+  align-items: center;
+
+  gap: 3.2rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  text-decoration: none;
+
+  display: inline-block;
+
+  font-size: 1.8rem;
+  font-weight: var(--medium);
+  transition: all 0.3s;
+
+  color: var(--grey-weighted-color);
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: var(--main-shade-color);
+}
+
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+  padding: 1.2rem 2.4rem;
+  border-radius: var(--border-radius-default);
+
+  color: #fff;
+  background-color: var(--main-color);
+}
+
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+  background-color: var(--main-shade-color);
+}
+
+/*********************************/
 /*          HERO SECTION         */
 /*********************************/
 .section-hero {
   padding: 4.8rem 0 9.6rem 0;
 
-  background-color: var(--hero-bgc-color);
+  background-color: var(--bgc-color);
 }
 
 .hero {
@@ -150,7 +235,7 @@ body {
 
 .hero-description {
   font-size: 2rem;
-  line-height: 1.6;
+  line-height: var(--lh-paragraph-default);
   margin-bottom: 4.8rem;
 }
 
@@ -175,7 +260,7 @@ body {
   width: 4.8rem;
   border-radius: 50%;
   margin-right: -1.6rem;
-  border: 3px solid var(--hero-bgc-color);
+  border: 3px solid var(--bgc-color);
 }
 
 .delivered-img img:last-child {
@@ -184,9 +269,23 @@ body {
 
 .delivered-text {
   font-size: 1.8rem;
-  font-weight: 600;
+  font-weight: var(--semi-bold);
 }
 
 .delivered-text span {
-  color: #cf711f;
+  color: var(--main-shade-color);
+}
+
+/*********************************/
+/*      HOW IT WORKS SECTION     */
+/*********************************/
+.section-how {
+  padding: 9.6rem 0;
+  background-color: orangered;
+}
+.section-how div div {
+  padding: 100px;
+  font-size: 50px;
+
+  background-color: #333;
 }

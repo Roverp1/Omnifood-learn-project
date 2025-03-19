@@ -50,7 +50,7 @@
 .main-nav-link.nav-cta:link,
 .main-nav-link.nav-cta:visited {
   padding: 1.2rem 2.4rem;
-  border-radius: var(--border-radius-default);
+  border-radius: var(--bdrs-default);
 
   color: #fff;
   background-color: var(--main-color);
@@ -214,4 +214,35 @@
 
 .step-img {
   width: 35%;
+}
+
+/*********************************/
+/*          MEALS SECTION        */
+/*********************************/
+.section-meals {
+  padding: 9.6rem 0;
+}
+
+.meal-title {
+  font-size: 2.4rem;
+  font-weight: var(--fw-semi-bold);
+  margin-bottom: 3.2rem;
+
+  color: var(--grey-color-v3);
+}
+
+.meal-attributes {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.meal-attribute {
+  font-size: 1.8rem;
+}
+
+.meal-img {
+  width: 100%;
 }

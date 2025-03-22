@@ -239,6 +239,29 @@ body {
   color: var(--shade-color-v1);
 }
 
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  list-style: none;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  font-size: 1.8rem;
+}
+
+.list-icon {
+  width: 3rem;
+  height: 3rem;
+
+  color: var(--main-color);
+}
+
 /*HELPER SETTING*/
 .margin-right-sm {
   margin-right: 1.6rem !important;
